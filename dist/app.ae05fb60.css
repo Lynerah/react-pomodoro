@@ -1,0 +1,57 @@
+body{
+	background-color: #6D214F;
+	font-family: 'Sriracha', cursive;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	text-align: center;
+}
+
+button{
+	background-color: transparent;
+	padding: 15px;
+	margin: 10px;
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.flex{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.timer-container{
+	margin: -50px 20px 20px;
+}
+
+.timer-container h2{
+	margin: 0;
+}
+
+.buttonsAction span {
+	font-size: 40px;
+	margin: 0 10px;
+	width: 50px;
+}
+
+.clock-container {
+	border: 2px solid white;
+	border-radius: 50px;
+	padding: 10px;
+	display: inline-block;
+	width: 400px;
+}
+
+.clock-container h1{
+	margin: 0;
+}
+
+.clock-container span{
+	font-size: 65px;
+}
+
+/*# sourceMappingURL=/app.ae05fb60.css.map */
