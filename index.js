@@ -73,53 +73,83 @@ class App extends React.Component {
 
 
 	timeConvert = (count) => {
-		const minutes = Math.floor(count / 60);
+		let minutes = Math.floor(count / 60);
 		let seconds = count % 60;
 
+		minutes = minutes < 10 ? ('0'+minutes) : minutes;
 		seconds = seconds < 10 ? ('0'+seconds) : seconds;
 
 		return `${minutes}:${seconds}`;
 	}
 
 	handleBreakDecrease = () => {
-		const {breakCount} = this.state;
+		const {breakCount, isPlaying, currentTimer} = this.state;
 
 		if(breakCount > 1){
-			this.setState({
-			breakCount: breakCount - 1 
-			});
+			
+
+			if(!isPlaying && currentTimer === "Break"){
+				this.setState({
+					breakCount: breakCount - 1 
+					clockCount: (breakCount - 1)* 60
+				});
+			}else{
+				this.setState({
+				breakCount: breakCount - 1 
+				});
+			}
 		}
-		
 	}
 
 	handleBreakIncrease = () => {
-		const {breakCount} = this.state;
+		const {breakCount, isPlaying, currentTimer} = this.state;
 
 		if(breakCount < 60){
-			this.setState({
+
+			if(!isPlaying && currentTimer === "Break"){
+				this.setState({
+					breakCount: breakCount + 1 
+					clockCount: (breakCount + 1)* 60
+				});
+			}else{
+				this.setState({
 				breakCount: breakCount + 1 
-			});
+				});
+			}
 		}
 	}
 
 	handleWorkDecrease = () => {
-		const {workCount} = this.state;
+		const {breakCount, isPlaying, currentTimer} = this.state;
 
 		if(workCount > 1){
-			this.setState({
-			workCount: workCount - 1 
-			});
+			if(!isPlaying && currentTimer === "Session"){
+				this.setState({
+					workCount: workCount - 1 
+					clockCount: (workCount - 1)* 60
+				});
+			}else{
+				this.setState({
+				workCount: workCount - 1 
+				});
+			}
 		}
-		
 	}
 
 	handleWorkIncrease = () => {
-		const {workCount} = this.state;
+		const {breakCount, isPlaying, currentTimer} = this.state;
 
 		if(workCount < 60){
-			this.setState({
+			if(!isPlaying && currentTimer === "Break"){
+				this.setState({
+					workCount: workCount + 1 
+					clockCount: (workCount + 1)* 60
+				});
+			}else{
+				this.setState({
 				workCount: workCount + 1 
-			});
+				});
+			}
 		}
 	}
 	
